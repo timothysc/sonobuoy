@@ -21,8 +21,8 @@ EXAMPLES_OUTPUT = $(patsubst examples/ksonnet/%.jsonnet,examples/%.yaml,$(EXAMPL
 
 KSONNET_BUILD_IMAGE = ksonnet/ksonnet-lib:beta.2
 
-PLUGINS = $(wildcard plugins.d/*.jsonnet)
-PLUGINS_OUTPUT = $(patsubst plugins.d/%.jsonnet,plugins.d/%.tmpl,$(PLUGINS))
+PLUGINS = $(wildcard examples/ksonnetplugins.d/*.jsonnet)
+PLUGINS_OUTPUT = $(patsubst examples/ksonnet/plugins.d/%.jsonnet,examples/ksonnet/plugins.d/%.tmpl,$(PLUGINS))
 
 TARGET = sonobuoy
 GOTARGET = github.com/heptio/$(TARGET)
@@ -107,7 +107,7 @@ generate: latest-ksonnet examples plugins
 
 plugins: $(PLUGINS_OUTPUT)
 
-plugins.d/%.tmpl: plugins.d/%.jsonnet
+examples/plugins.d/%.tmpl: examples/plugins.d/%.jsonnet
 	$(KUBECFG_CMD)
 
 examples: $(EXAMPLES_OUTPUT)

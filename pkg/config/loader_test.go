@@ -104,7 +104,7 @@ func TestDefaultResources(t *testing.T) {
 
 func TestLoadAllPlugins(t *testing.T) {
 	cfg := &Config{
-		PluginSearchPath: []string{"./pkg/config/plugins.d"},
+		PluginSearchPath: []string{"./manifests/ksonnet/plugins.d"},
 		PluginSelections: []plugin.Selection{
 			plugin.Selection{Name: "systemd_logs"},
 			plugin.Selection{Name: "e2e"},

@@ -5,4 +5,4 @@
 /results
 
 # Development manifest
-examples/dev.yaml
+manifests/dev.yaml
